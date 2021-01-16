@@ -1,0 +1,33 @@
+# Type
+type User {
+    _id: ID!
+    username: String
+    roles: [String]
+    permissions: [String]
+    pets: [Pet]!
+}
+
+type AuthPayLoad {
+    token: String!
+}
+
+type Query {
+    users: [User]!
+    profil: User!
+}
+
+type Mutation {
+    addUser(input: NewUserInput): User
+    login(username: String!, password: String!): AuthPayLoad!
+}
+
+type Subscription {
+    users: [User]
+}
+
+# Input
+input NewUserInput {
+    username: String!
+    password: String!
+    roles: [String!]!
+}

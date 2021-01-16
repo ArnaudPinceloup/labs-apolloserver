@@ -1,0 +1,37 @@
+directive @upper on FIELD_DEFINITION
+
+# Type
+type Pet {
+    _id: ID!
+    createdAt: String
+    name: String @upper
+    type: Animal
+    owner: User 
+}
+
+type Query {
+    pets(input: PetInput): [Pet]!
+    pet(_id: ID!): Pet!
+}
+
+type Mutation {
+    addPet(input: NewPetInput): Pet
+}
+
+# Input
+input PetInput {
+    name: String
+    type: Animal
+}
+
+input NewPetInput {
+    name: String!
+    type: Animal!
+}
+
+# Enum
+enum Animal {
+    dog
+    cat
+    human
+}
