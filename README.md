@@ -1,2 +1,2 @@
 # labs-apolloserver
-Apollo server creation test for pet management.
+A NodeJS Apollo server creation test for pet management.
